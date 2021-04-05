@@ -1,0 +1,94 @@
+<?php
+
+namespace Phppot;
+
+require_once("lib/MailService.php");
+$mailService = new MailService();
+if (!empty($_POST['send'])) {
+	$response = $mailService->sendContactMail($_POST);
+	if (!empty($response)) {
+		$message = "Hi, we have received your message. Thank you.";
+		$type = "success";
+	} else {
+		$type = "error";
+	}
+}
+?>
+
+<div class="w-full mx-auto max-w-screen bg-white px-4 pt-1 pb-6 text-gray-700" id="contactus">
+	<div><img src="Images/BPC Map.png" class="w-full mx-auto max-w-3xl px-4 pt-1 pb-6 lg:float-left lg:mt-52 md:object-center sm:object-center" /></div>
+	<form name="frmContact" class="mb-4 px-5 py-5 lg:max-w-3xl md:max-w-3xl sm:w-full md:justify-between rounded w-2/3 lg:float-right sm:p-24" frmContact"" method="post" action="" enctype="multipart/form-data" onsubmit="return validateContactForm()">
+		<label class="block w-full text-grey-darkest mb-5 text-3xl text-center">Contact BPC Strong</label>
+		<div>
+			<div class="label flex flex-col">
+				<label class="text-grey-darkest md:ml-2" for="last_name"> First Name <span id="userFName-info" class="validation-message"></span>
+				</label>
+			</div>
+			<input type="text" class="border border-gray-400 rounded mb-5 py-1 px-3 text-grey-darkest md:ml-2 w-full" name="firstName" id="firstName" value="<?php if (!empty($_POST['firstName']) && $type == 'error') {
+																																									echo $_POST['firstName'];
+																																								} ?>" />
+		</div>
+		<div>
+			<div class="label flex flex-col">
+				<label class="text-grey-darkest md:ml-2" for="last_name"> Last Name <span id="userLName-info" class="validation-message"></span>
+				</label>
+			</div>
+			<input type="text" class="border border-gray-400 rounded mb-5 py-1 px-3 text-grey-darkest md:ml-2 w-full" name="lastName" id="lastName" value="<?php if (!empty($_POST['lastName']) && $type == 'error') {
+																																								echo $_POST['lastName'];
+																																							} ?>" />
+		</div>
+		<div>
+			<div class="label flex flex-col">
+				<label class="text-grey-darkest md:ml-2" for="last_name"> Phone Number <span id="userPhone-info" class="validation-message"></span>
+				</label>
+			</div>
+			<input type="text" class="border border-gray-400 rounded mb-5 py-1 px-3 text-grey-darkest md:ml-2 w-full" name="phone" id="phone" value="<?php if (!empty($_POST['phone']) && $type == 'error') {
+																																							echo $_POST['phone'];
+																																						} ?>" />
+		</div>
+		<div>
+			<div class="label flex flex-col">
+				<label class="text-base text-grey-darkest md:ml-2" for="last_name">
+					Email <span id="userEmail-info" class="validation-message"></span>
+				</label>
+			</div>
+			<input type="text" class="border border-gray-400 rounded mb-5 py-1 px-3 text-grey-darkest md:ml-2 w-full" name="userEmail" id="userEmail" value="<?php if (!empty($_POST['userEmail']) && $type == 'error') {
+																																									echo $_POST['userEmail'];
+																																								} ?>" />
+		</div>
+		<div>
+			<div class="label flex flex-col">
+				<label class="text-base text-grey-darkest md:ml-2" for="last_name">
+					Subject <span id="subject-info" class="validation-message"></span>
+				</label>
+			</div>
+			<input type="text" class="border rounded border-gray-400 mb-5 py-1 px-3 text-grey-darkest md:ml-2 w-full" name="subject" id="subject" value="<?php if (!empty($_POST['subject']) && $type == 'error') {
+																																								echo $_POST['subject'];
+																																							} ?>" />
+		</div>
+		<div>
+			<div class="label flex flex-col">
+				<label class="text-base text-grey-darkest md:ml-2" for="last_name">
+					Message <span id="userMessage-info" class="validation-message"></span>
+				</label>
+			</div>
+			<textarea name="content" id="content" class="resize-x border border-gray-400 rounded md:ml-2  mb-4 w-full" cols="35" rows="5"><?php if (!empty($_POST['content']) && $type == 'error') {
+																																				echo $_POST['content'];
+																																			} ?></textarea>
+		</div>
+
+		<div>
+			<input type="submit" name="send" class="bg-green-400 rounded text-white font-bold py-1 px-16 md:ml-2" value="Send" />
+		</div>
+
+	</form>
+	<?php if (!empty($message)) { ?>
+		<div id="phppot-message" class="<?php echo $type; ?>"><?php if (isset($message)) { ?>
+		<?php echo $message;
+																}
+															} ?>
+
+		</div>
+</div>
+
+<script src="assets/js/form.js"></script>

@@ -1,0 +1,17 @@
+BEGIN:VCARD
+VERSION:3.0
+PRODID:-//Apple Inc.//iPhone OS 14.4.2//EN
+N:;;;;
+FN:Bystol Performance Center
+ORG:Bystol Performance Center;
+TEL;type=WORK;type=VOICE;type=pref:+1 (847) 989-7216
+item1.ADR;type=WORK;type=pref:;;1200 Old Skokie Valley Rd;Highland Park;IL;60035;United States
+item1.X-ABADR:US
+item1.X-APPLE-SUBLOCALITY:Briergate Station
+item1.X-APPLE-SUBADMINISTRATIVEAREA:Lake
+item2.URL;type=pref:https://www.bpcstrong.com
+item2.X-ABLabel:_$!<HomePage>!$_
+item3.URL:https://maps.apple.com/?address=1200%20Old%20Skokie%20Valley%20Rd\,%20Highland%20Park\,%20IL%20%2060035\,%20United%20States&auid=5421665608171451840&ll=42.174678\,-87.816744&lsp=9902&q=Bystol%20Performance%20Center&_ext=ChoKBQgEEOIBCgQIBRADCgUIBhCRAQoECAoQABImKWtAhKnIFUVAMQlIHNSo9FXAOekVqgXvFkVAQfHSdjvi81XAUAQ%3D&t=m
+item3.X-ABLabel:map url
+X-ABShowAs:COMPANY
+END:VCARD
